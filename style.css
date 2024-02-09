@@ -2,6 +2,18 @@ body {
     text-align: center;
 }
 
+#title {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+#reset-board {
+    border-radius: 5px;
+    width: 160px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 #container {
     align-items: center;
     border: 20px solid red;

@@ -3,6 +3,10 @@ const MAX_WIDTH = 800;
 
 const mouseOverHandler = (event) => {
     event.target.style.backgroundColor = 'black';
+
+    const currentOpacity = parseFloat(event.target.style.opacity || 0);
+
+    event.target.style.opacity = `${Math.min(currentOpacity + 0.1, 1.0)}`;
 }
 
 const prepareGrid = (numOfRowsColumns) => {
@@ -16,7 +20,7 @@ const prepareGrid = (numOfRowsColumns) => {
         for (let i = 0; i < numOfRowsColumns; i++) {
             const cellDiv = document.createElement('div');
 
-            const cellWidthHeight = Math.floor(MAX_WIDTH / numOfRowsColumns);
+            const cellWidthHeight = MAX_WIDTH / numOfRowsColumns;
 
             cellDiv.style.width = `${cellWidthHeight}px`;
             cellDiv.style.height = `${cellWidthHeight}px`;
@@ -36,8 +40,10 @@ const prepareGrid = (numOfRowsColumns) => {
 const resetButtonClickHandler = (event) => {
     let numOfRowsColumns = prompt('How many rows/columns do you want?');
 
-    while (!numOfRowsColumns || isNaN(numOfRowsColumns)) {
-        numOfRowsColumns = prompt('Value must be an integer! Please insert a valid number of rows/columns:');
+    console.log('parseInt(numOfRowsColumns)', parseInt(numOfRowsColumns))
+
+    while (!numOfRowsColumns || isNaN(numOfRowsColumns) || parseInt(numOfRowsColumns) > 100) {
+        numOfRowsColumns = prompt('Value must be an integer less than 100! Please insert a valid number of rows/columns:');
     }
 
     prepareGrid(numOfRowsColumns);
