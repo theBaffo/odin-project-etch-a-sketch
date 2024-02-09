@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+}
+
+#container {
+    align-items: center;
+    border: 20px solid red;
+    border-radius: 25px;
+    width: 800px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
